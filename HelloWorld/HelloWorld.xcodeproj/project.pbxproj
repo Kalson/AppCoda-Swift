@@ -14,6 +14,8 @@
 		26D3F2061BE8244E00121C7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26D3F2041BE8244E00121C7F /* LaunchScreen.storyboard */; };
 		26D3F2111BE8244E00121C7F /* HelloWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F2101BE8244E00121C7F /* HelloWorldTests.swift */; };
 		26D3F21C1BE8244E00121C7F /* HelloWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F21B1BE8244E00121C7F /* HelloWorldUITests.swift */; };
+		26D3F26E1BE92FA600121C7F /* AutoLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F26D1BE92FA600121C7F /* AutoLayoutView.swift */; settings = {ASSET_TAGS = (); }; };
+		26D3F2701BE9308600121C7F /* HelloButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F26F1BE9308600121C7F /* HelloButton.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		26D3F2171BE8244E00121C7F /* HelloWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D3F21B1BE8244E00121C7F /* HelloWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldUITests.swift; sourceTree = "<group>"; };
 		26D3F21D1BE8244E00121C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26D3F26D1BE92FA600121C7F /* AutoLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutView.swift; sourceTree = "<group>"; };
+		26D3F26F1BE9308600121C7F /* HelloButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			children = (
 				26D3F1FB1BE8244E00121C7F /* AppDelegate.swift */,
 				26D3F1FD1BE8244E00121C7F /* ViewController.swift */,
+				26D3F26F1BE9308600121C7F /* HelloButton.swift */,
+				26D3F26D1BE92FA600121C7F /* AutoLayoutView.swift */,
 			);
 			path = HelloWorld;
 			sourceTree = "<group>";
@@ -264,8 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D3F2701BE9308600121C7F /* HelloButton.swift in Sources */,
 				26D3F1FE1BE8244E00121C7F /* ViewController.swift in Sources */,
 				26D3F1FC1BE8244E00121C7F /* AppDelegate.swift in Sources */,
+				26D3F26E1BE92FA600121C7F /* AutoLayoutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
