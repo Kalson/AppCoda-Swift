@@ -78,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				26D3F1FA1BE8244E00121C7F /* HelloWorld */,
+				26D3F2291BE82DA400121C7F /* Supporting Files */,
 				26D3F20F1BE8244E00121C7F /* HelloWorldTests */,
 				26D3F21A1BE8244E00121C7F /* HelloWorldUITests */,
 				26D3F1F91BE8244E00121C7F /* Products */,
@@ -99,10 +100,6 @@
 			children = (
 				26D3F1FB1BE8244E00121C7F /* AppDelegate.swift */,
 				26D3F1FD1BE8244E00121C7F /* ViewController.swift */,
-				26D3F1FF1BE8244E00121C7F /* Main.storyboard */,
-				26D3F2021BE8244E00121C7F /* Assets.xcassets */,
-				26D3F2041BE8244E00121C7F /* LaunchScreen.storyboard */,
-				26D3F2071BE8244E00121C7F /* Info.plist */,
 			);
 			path = HelloWorld;
 			sourceTree = "<group>";
@@ -123,6 +120,18 @@
 				26D3F21D1BE8244E00121C7F /* Info.plist */,
 			);
 			path = HelloWorldUITests;
+			sourceTree = "<group>";
+		};
+		26D3F2291BE82DA400121C7F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				26D3F1FF1BE8244E00121C7F /* Main.storyboard */,
+				26D3F2021BE8244E00121C7F /* Assets.xcassets */,
+				26D3F2041BE8244E00121C7F /* LaunchScreen.storyboard */,
+				26D3F2071BE8244E00121C7F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = HelloWorld;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

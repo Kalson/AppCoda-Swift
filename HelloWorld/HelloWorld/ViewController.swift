@@ -20,17 +20,22 @@ class ViewController: UIViewController {
         
         let hwButton = UIButton(frame: CGRectMake(SCREEN_WIDTH/2 - 140, SCREEN_HEIGHT/2 - 30, 280, 30))
         hwButton.setTitle("Hello World", forState: .Normal)
-        hwButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        hwButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         hwButton.addTarget(self, action: Selector("showHelloMessage"), forControlEvents: .TouchUpInside)
-//        hwButton.backgroundColor = UIColor.blackColor()
-        
+        hwButton.backgroundColor = UIColor.greenColor()
+        hwButton.layer.cornerRadius = 6
         self.view.addSubview(hwButton)
     }
     
     @objc func showHelloMessage() {
         print("Hello World")
         
-//        let helloAlert = UIAlertController(title: "Alert", message: "Hello World", preferredStyle: <#T##UIAlertControllerStyle#>))
+        let helloAlert = UIAlertController(title: "Welcome to My 1st Swift App", message: "Hello World", preferredStyle: UIAlertControllerStyle.Alert)
+        self .presentViewController(helloAlert, animated:true, completion: nil)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil)
+        
+        helloAlert.addAction(okayAction)
     }
 
     override func didReceiveMemoryWarning() {
