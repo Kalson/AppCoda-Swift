@@ -78,6 +78,33 @@ class TableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .ActionSheet)
+        
+        let callHandler = { (action: UIAlertAction!) -> Void in
+            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
+            alertMessage.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+       
+        let isVisitAction = UIAlertAction(title: "I've been here", style: .Default) {(UIAlertAction) -> Void in
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        
+        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .Default, handler: callHandler)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+        optionMenu.addAction(callAction)
+        optionMenu.addAction(cancelAction)
+        optionMenu.addAction(isVisitAction)
+
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
