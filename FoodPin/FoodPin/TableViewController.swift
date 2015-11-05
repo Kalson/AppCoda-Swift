@@ -160,7 +160,6 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let shareRowAction = UITableViewRowAction(style: .Default, title: "Share") { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-//            shareRowAction.bac
             let shareAlert = UIAlertController(title: nil, message: "Share using", preferredStyle: UIAlertControllerStyle.ActionSheet)
             let twitterAction = UIAlertAction(title: "Twitter", style: .Default, handler: nil)
             let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
@@ -191,8 +190,7 @@ class TableViewController: UITableViewController {
             }
         }
         
-        
-
+        shareRowAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         
         return [deleteRowAction,shareRowAction]
     }
