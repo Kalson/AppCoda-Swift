@@ -14,6 +14,7 @@ class TableViewController: UITableViewController {
     var restaurantImages: [String] = []
     var restaurantLocations: [String] = []
     var restaurantTypes: [String] = []
+    var restaurantIsVisited = [Bool](count:21, repeatedValue:false)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,15 @@ class TableViewController: UITableViewController {
         cell.thumbNailImageView.layer.cornerRadius = cell.thumbNailImageView.frame.size.width/2
         cell.thumbNailImageView.clipsToBounds = true
         
+        if restaurantIsVisited[indexPath.row]{
+            cell.accessoryType = .Checkmark
+
+        } else {
+            cell.accessoryType = .None
+
+        }
+
+        
         return cell
     }
     
@@ -92,7 +102,16 @@ class TableViewController: UITableViewController {
        
         let isVisitAction = UIAlertAction(title: "I've been here", style: .Default) {(UIAlertAction) -> Void in
             let cell = tableView.cellForRowAtIndexPath(indexPath)
-            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+            
+            if cell?.accessoryType == UITableViewCellAccessoryType.None{
+                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+                self.restaurantIsVisited[indexPath.row] = true
+            } else {
+                cell?.accessoryType = UITableViewCellAccessoryType.None
+                self.restaurantIsVisited[indexPath.row] = false
+            }
+            
+            
         }
         
         let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .Default, handler: callHandler)
