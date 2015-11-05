@@ -32,6 +32,8 @@ class TableViewController: UITableViewController {
         
         restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish","Spanish", "British", "Thai"]
         
+        self.tableView.reloadData()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -133,17 +135,68 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            // Delete the row from the data source
+//            restaurantNames.removeAtIndex(indexPath.row)
+//            restaurantLocations.removeAtIndex(indexPath.row)
+//            restaurantTypes.removeAtIndex(indexPath.row)
+//            restaurantIsVisited.removeAtIndex(indexPath.row)
+//            restaurantImages.removeAtIndex(indexPath.row)
+//            
+//            print("total items = \(restaurantNames.count)")
+//            for name in restaurantNames{
+//                print(name)
+//            }
+//            
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//            
+//        } else if editingStyle == .Insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }    
+//    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let shareRowAction = UITableViewRowAction(style: .Default, title: "Share") { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+//            shareRowAction.bac
+            let shareAlert = UIAlertController(title: nil, message: "Share using", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let twitterAction = UIAlertAction(title: "Twitter", style: .Default, handler: nil)
+            let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
+            let emailAction = UIAlertAction(title: "Email", style: .Default, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            
+            shareAlert.addAction(twitterAction)
+            shareAlert.addAction(facebookAction)
+            shareAlert.addAction(emailAction)
+            shareAlert.addAction(cancelAction)
+            
+            self.presentViewController(shareAlert, animated: true, completion: nil)
+
+        }
+        
+        let deleteRowAction = UITableViewRowAction(style:.Default, title: "Delete") { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+            self.restaurantNames.removeAtIndex(indexPath.row)
+            self.restaurantLocations.removeAtIndex(indexPath.row)
+            self.restaurantTypes.removeAtIndex(indexPath.row)
+            self.restaurantIsVisited.removeAtIndex(indexPath.row)
+            self.restaurantImages.removeAtIndex(indexPath.row)
+            
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            print("total items = \(self.restaurantNames.count)")
+            for name in self.restaurantNames{
+                print(name)
+            }
+        }
+        
+        
+
+        
+        return [deleteRowAction,shareRowAction]
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
