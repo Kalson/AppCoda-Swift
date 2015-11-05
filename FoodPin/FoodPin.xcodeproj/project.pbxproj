@@ -15,6 +15,7 @@
 		262378431BE99B80009E0961 /* FoodPinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378421BE99B80009E0961 /* FoodPinUITests.swift */; };
 		262378521BE99BD2009E0961 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378511BE99BD2009E0961 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		262378541BE9D237009E0961 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378531BE9D237009E0961 /* CustomTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		26471DA01BEBB53E00208B3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26471D9F1BEBB53E00208B3D /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		262378441BE99B80009E0961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		262378511BE99BD2009E0961 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		262378531BE9D237009E0961 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		26471D9F1BEBB53E00208B3D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				262378221BE99B7F009E0961 /* AppDelegate.swift */,
 				262378511BE99BD2009E0961 /* TableViewController.swift */,
+				26471D9F1BEBB53E00208B3D /* DetailViewController.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				262378541BE9D237009E0961 /* CustomTableViewCell.swift in Sources */,
 				262378521BE99BD2009E0961 /* TableViewController.swift in Sources */,
 				262378231BE99B7F009E0961 /* AppDelegate.swift in Sources */,
+				26471DA01BEBB53E00208B3D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +509,7 @@
 				262378491BE99B80009E0961 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2623784A1BE99B80009E0961 /* Build configuration list for PBXNativeTarget "FoodPinTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				2623784C1BE99B80009E0961 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2623784D1BE99B80009E0961 /* Build configuration list for PBXNativeTarget "FoodPinUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				2623784F1BE99B80009E0961 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

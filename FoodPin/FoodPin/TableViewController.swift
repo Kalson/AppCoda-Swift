@@ -15,6 +15,8 @@ class TableViewController: UITableViewController {
     var restaurantLocations: [String] = []
     var restaurantTypes: [String] = []
     var restaurantIsVisited = [Bool](count:21, repeatedValue:false)
+    
+//    var detailVC = DetailViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +62,9 @@ class TableViewController: UITableViewController {
         return restaurantNames.count
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -90,41 +92,89 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .ActionSheet)
-        
-        let callHandler = { (action: UIAlertAction!) -> Void in
-            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
-            alertMessage.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-            self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-       
-        let isVisitAction = UIAlertAction(title: "I've been here", style: .Default) {(UIAlertAction) -> Void in
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            
-            if cell?.accessoryType == UITableViewCellAccessoryType.None{
-                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-                self.restaurantIsVisited[indexPath.row] = true
-            } else {
-                cell?.accessoryType = UITableViewCellAccessoryType.None
-                self.restaurantIsVisited[indexPath.row] = false
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showRestaurantDetail"{
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let destinationController = segue.destinationViewController as! DetailViewController
+                destinationController.restaurantImage = restaurantImages[indexPath.row]
             }
+        }
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let shareRowAction = UITableViewRowAction(style: .Default, title: "Share") { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+            let shareAlert = UIAlertController(title: nil, message: "Share using", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let twitterAction = UIAlertAction(title: "Twitter", style: .Default, handler: nil)
+            let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
+            let emailAction = UIAlertAction(title: "Email", style: .Default, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+            shareAlert.addAction(twitterAction)
+            shareAlert.addAction(facebookAction)
+            shareAlert.addAction(emailAction)
+            shareAlert.addAction(cancelAction)
             
-            
+            self.presentViewController(shareAlert, animated: true, completion: nil)
         }
         
-        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .Default, handler: callHandler)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-
-        optionMenu.addAction(callAction)
-        optionMenu.addAction(cancelAction)
-        optionMenu.addAction(isVisitAction)
-
-        self.presentViewController(optionMenu, animated: true, completion: nil)
+        let deleteRowAction = UITableViewRowAction(style:.Default, title: "Delete") { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+            self.restaurantNames.removeAtIndex(indexPath.row)
+            self.restaurantLocations.removeAtIndex(indexPath.row)
+            self.restaurantTypes.removeAtIndex(indexPath.row)
+            self.restaurantIsVisited.removeAtIndex(indexPath.row)
+            self.restaurantImages.removeAtIndex(indexPath.row)
+        
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            print("total items = \(self.restaurantNames.count)")
+            for name in self.restaurantNames{
+            print(name)
+            }
+        }
+        
+        shareRowAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        
+        return [deleteRowAction,shareRowAction]
     }
+    
+    
+//    -      shareRowAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//        
+//        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .ActionSheet)
+//        
+//        let callHandler = { (action: UIAlertAction!) -> Void in
+//            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
+//            alertMessage.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+//            self.presentViewController(alertMessage, animated: true, completion: nil)
+//        }
+//       
+//        let isVisitAction = UIAlertAction(title: "I've been here", style: .Default) {(UIAlertAction) -> Void in
+//            let cell = tableView.cellForRowAtIndexPath(indexPath)
+//            
+//            if cell?.accessoryType == UITableViewCellAccessoryType.None{
+//                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+//                self.restaurantIsVisited[indexPath.row] = true
+//            } else {
+//                cell?.accessoryType = UITableViewCellAccessoryType.None
+//                self.restaurantIsVisited[indexPath.row] = false
+//            }
+//            
+//            
+//        }
+//        
+//        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .Default, handler: callHandler)
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+//
+//        optionMenu.addAction(callAction)
+//        optionMenu.addAction(cancelAction)
+//        optionMenu.addAction(isVisitAction)
+//
+//        self.presentViewController(optionMenu, animated: true, completion: nil)
+//    }
     
 
     /*
@@ -158,42 +208,7 @@ class TableViewController: UITableViewController {
 //        }    
 //    }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let shareRowAction = UITableViewRowAction(style: .Default, title: "Share") { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-            let shareAlert = UIAlertController(title: nil, message: "Share using", preferredStyle: UIAlertControllerStyle.ActionSheet)
-            let twitterAction = UIAlertAction(title: "Twitter", style: .Default, handler: nil)
-            let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: nil)
-            let emailAction = UIAlertAction(title: "Email", style: .Default, handler: nil)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            
-            shareAlert.addAction(twitterAction)
-            shareAlert.addAction(facebookAction)
-            shareAlert.addAction(emailAction)
-            shareAlert.addAction(cancelAction)
-            
-            self.presentViewController(shareAlert, animated: true, completion: nil)
-
-        }
-        
-        let deleteRowAction = UITableViewRowAction(style:.Default, title: "Delete") { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-            self.restaurantNames.removeAtIndex(indexPath.row)
-            self.restaurantLocations.removeAtIndex(indexPath.row)
-            self.restaurantTypes.removeAtIndex(indexPath.row)
-            self.restaurantIsVisited.removeAtIndex(indexPath.row)
-            self.restaurantImages.removeAtIndex(indexPath.row)
-            
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
-            print("total items = \(self.restaurantNames.count)")
-            for name in self.restaurantNames{
-                print(name)
-            }
-        }
-        
-        shareRowAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
-        
-        return [deleteRowAction,shareRowAction]
-    }
+   
     
 
     /*
