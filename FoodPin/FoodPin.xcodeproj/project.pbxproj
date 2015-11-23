@@ -13,9 +13,9 @@
 		2623782D1BE99B7F009E0961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2623782B1BE99B7F009E0961 /* LaunchScreen.storyboard */; };
 		262378381BE99B80009E0961 /* FoodPinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378371BE99B80009E0961 /* FoodPinTests.swift */; };
 		262378431BE99B80009E0961 /* FoodPinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378421BE99B80009E0961 /* FoodPinUITests.swift */; };
-		262378521BE99BD2009E0961 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378511BE99BD2009E0961 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		262378541BE9D237009E0961 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378531BE9D237009E0961 /* CustomTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		26471DA01BEBB53E00208B3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26471D9F1BEBB53E00208B3D /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		262378521BE99BD2009E0961 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378511BE99BD2009E0961 /* TableViewController.swift */; };
+		262378541BE9D237009E0961 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378531BE9D237009E0961 /* CustomTableViewCell.swift */; };
+		26471DA01BEBB53E00208B3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26471D9F1BEBB53E00208B3D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				262378211BE99B7F009E0961 /* FoodPin */,
+				263FD2401C02B8E100BA5E91 /* View Controllers */,
 				262378551BEA8429009E0961 /* View */,
 				262378501BE99B96009E0961 /* Support Files */,
 				262378361BE99B80009E0961 /* FoodPinTests */,
@@ -104,8 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				262378221BE99B7F009E0961 /* AppDelegate.swift */,
-				262378511BE99BD2009E0961 /* TableViewController.swift */,
-				26471D9F1BEBB53E00208B3D /* DetailViewController.swift */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -146,6 +145,16 @@
 				262378531BE9D237009E0961 /* CustomTableViewCell.swift */,
 			);
 			name = View;
+			path = FoodPin;
+			sourceTree = "<group>";
+		};
+		263FD2401C02B8E100BA5E91 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				262378511BE99BD2009E0961 /* TableViewController.swift */,
+				26471D9F1BEBB53E00208B3D /* DetailViewController.swift */,
+			);
+			name = "View Controllers";
 			path = FoodPin;
 			sourceTree = "<group>";
 		};

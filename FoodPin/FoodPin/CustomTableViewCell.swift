@@ -15,9 +15,6 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var TypeLabel: UILabel!
     @IBOutlet weak var thumbNailImageView: UIImageView!
     
-    
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
