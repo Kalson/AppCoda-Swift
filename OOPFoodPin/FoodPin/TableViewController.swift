@@ -49,6 +49,11 @@ class TableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = true
+
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
@@ -99,11 +104,7 @@ class TableViewController: UITableViewController {
         if segue.identifier == "showRestaurantDetail"{
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let destinationController = segue.destinationViewController as! DetailViewController
-                destinationController.restaurantImage = restaurants[indexPath.row].image
-                destinationController.nameText = restaurants[indexPath.row].name
-                destinationController.locationText = restaurants[indexPath.row].location
-                destinationController.typeText = restaurants[indexPath.row].type
-
+                destinationController.restaurant = restaurants[indexPath.row]
             }
         }
     }

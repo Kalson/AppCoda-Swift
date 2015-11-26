@@ -17,6 +17,7 @@
 		262378541BE9D237009E0961 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262378531BE9D237009E0961 /* CustomTableViewCell.swift */; };
 		26471DA01BEBB53E00208B3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26471D9F1BEBB53E00208B3D /* DetailViewController.swift */; };
 		269F5E0D1C02E6E8004A4B08 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269F5E0C1C02E6E8004A4B08 /* Restaurant.swift */; };
+		26F6CF141C06898A00566E41 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6CF131C06898A00566E41 /* DetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		262378531BE9D237009E0961 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		26471D9F1BEBB53E00208B3D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		269F5E0C1C02E6E8004A4B08 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		26F6CF131C06898A00566E41 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				262378531BE9D237009E0961 /* CustomTableViewCell.swift */,
+				26F6CF131C06898A00566E41 /* DetailTableViewCell.swift */,
 				262378261BE99B7F009E0961 /* Main.storyboard */,
 			);
 			name = View;
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F6CF141C06898A00566E41 /* DetailTableViewCell.swift in Sources */,
 				269F5E0D1C02E6E8004A4B08 /* Restaurant.swift in Sources */,
 				262378541BE9D237009E0961 /* CustomTableViewCell.swift in Sources */,
 				262378521BE99BD2009E0961 /* TableViewController.swift in Sources */,
