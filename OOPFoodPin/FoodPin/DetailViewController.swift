@@ -31,6 +31,9 @@ class DetailViewController: UIViewController {
         
         self.navigationController?.navigationBar.topItem?.title = "" // empty the back back button
         self.title = restaurant.name
+        
+        tableView.estimatedRowHeight = 36.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -82,6 +85,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
 }
