@@ -46,19 +46,16 @@ class TableViewController: UITableViewController {
         ]
         
         self.title = "Books"
+
         
-//        tableView.estimatedRowHeight = 80
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 80
     
         self.tableView.reloadData()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.setNavigationBarHidden(false, animated: true)
-
-
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
